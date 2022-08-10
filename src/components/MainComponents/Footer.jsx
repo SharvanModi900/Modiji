@@ -95,7 +95,7 @@ const Footer = () =>{
 
 
 
-    <div class="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t">
+    {/* <div class="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t">
       <div class="sm:w-full px-4 md:w-1/6">
         <strong>FWR</strong>
       </div>
@@ -114,7 +114,7 @@ const Footer = () =>{
       <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
         <button class="px-4 py-2 bg-purple-800 hover:bg-purple-900 rounded text-white">Get Started</button>
       </div>
-    </div>
+    </div> */}
   </div>
 </footer>
     )

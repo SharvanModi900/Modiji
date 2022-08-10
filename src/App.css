@@ -8,7 +8,7 @@
   height: 100vh;
 }
 .md-wave{
-
+height: 200vh;
   background-image: linear-gradient(252deg,  rgb(21 36 32) 24%, rgb(0, 0, 0) 51%);
 }
 .md-section{
@@ -21,3 +21,23 @@
 
  }
  
+ .lg-curcle{
+  height: 300px ;
+  
+  width: 300px;
+ }
+ .lg-square {
+  height: 70px ;
+  
+  width: 315px;
+ }
+ .vr-square {
+  height: 312px ;
+  
+  width: 70px;
+ }
+ .sm-curcle{
+  height: 200px ;
+  
+  width: 200px;
+ }
