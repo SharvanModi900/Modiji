@@ -81,12 +81,15 @@ const  Container = () =>{
      <span className='text-cyan-400 px-2 font-bold'>Metaverse</span>  and the myriad of possibilities unlocked
 </h1>
 <div className='w-1/2 float-left'>
-    <div className='lg-curcle bg-[#ff198e] mt-[100px] ml-[150px] float-left rounded-[100%] border-8	'>
+    <div className='lg-curcle shadow-inner	 bg-[#14dfff] mt-[100px] ml-[150px] float-left rounded-[100%] border-8	'>
 <div className='lg-square float-left bg-black ml-[-14px] mt-[100px] border-t-8 border-b-8 border-white'>
 </div>
 <div className='vr-square float-left bg-black ml-[110px] border-l-8 border-white border-r-8 border-white mt-[-183px]'>
-<div className='sm-curcle bg-black ml-[-78px] mt-[54px] border-4   rounded-[100%] float-left'>
-<span className='text-[#14dfff] font-bold items-center w-[100px] float-left mt-[60px] ml-[60px]'> Free NFT with every Ticket</span>
+<div className='sm-curcle  bg-black ml-[-78px] mt-[54px] border-8 shadow-lg shadow-cyan-500/50   rounded-[100%] float-left'>
+<span className='text-white text-[160px] font-bold items-center w-[100px] float-left mt-[-40px] ml-[40px]'> 
+1
+
+</span>
 </div>
 </div>
 
@@ -94,7 +97,34 @@ const  Container = () =>{
 <div className='w-1/2 float-right'>
     <img src={svgicons} className="mt-[90px] w-[500px]" />
 </div>
+<div className='md-wave'>
+<div className='w-1/2 float-left'>
+    <div className='text-white mt-[210px]  items-center ml-[200px]'>
+        <span className='font-bold text-[24px] float-left'>Win free tokens</span>
+<span className='text-[#00e7ff] float-left text-[32px] font-bold'>Gift by Airdrop & Bounty</span>
+<span className='text-white font-sm  float-left'>Help us spread the word, show your support in the most efficient or creative way and we will thank you with exciting rewards and GAME tokens</span>
 </div>
+</div>
+<div className='w-1/2 float-right'>
+    
+    
+<div className='text-white text-[40px] float-right mr-[160px]  p-8  mt-[200px] drop-shadow-lg underline leading-[100px]'>
+<div className='float-left'>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff] border-4 decoration border-white m-4 absolute ml-[5px] mt-[0px] rounded-[100px]'></div>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff]  border-4 border-white absolute ml-[35px] rounded-[100px]'></div>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff] border-4 border-white rounded-[100px] absolute ml-[65px] '></div>
+    </div>
+    AIRDROP
+    <div className='float-left mt-[100px]'>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff] border-4 decoration border-white m-4 absolute ml-[5px] mt-[0px] rounded-[100px]'></div>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff]  border-4 border-white absolute ml-[35px] rounded-[100px]'></div>
+    <div className='w-[15px] h-[15px] bg-[#33c7ff] border-4 border-white rounded-[100px] absolute ml-[65px] '></div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
         </div>
        
        
