@@ -2,9 +2,9 @@ import { NavBar,Footer,Container } from "./components";
 import "./App.css";
 
 
-const App = () => {
+const App = ({connectToWallet}) => {
   return <>
-  <NavBar />
+  <NavBar connectToWallet={connectToWallet} />
   <Container/>
   <Footer />
   </>;

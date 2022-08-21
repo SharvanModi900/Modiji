@@ -1,4 +1,40 @@
+import { ethers } from "ethers"
+import { useEffect } from "react";
+import { useState } from "react";
+const {ethereum} = window;
 const NavBar = () =>{
+ const [haveMetaMask, setHaveMetaMask] = useState(true);
+ const [isConnected,setIsConneted] = useState(false)
+ const[accountAddress, setAccountsAddress] = useState('');
+
+ const {ethereum} = window;
+ const availibilityOfMetaMask = async() =>{
+  if(!ethereum){
+    setHaveMetaMask(false)
+  }
+  setHaveMetaMask(true)
+      }
+      const connectToWallet = async() =>{
+        console.log('cled')
+try{
+  if(!ethereum){
+    setHaveMetaMask(false)
+  }
+  const accounts = await ethereum.request({
+    method:'eth_requestAccounts'
+  })
+
+}
+catch(error){
+setIsConneted(false)
+}
+      }
+  useEffect(()=>{
+    
+
+    availibilityOfMetaMask();
+    connectToWallet();
+  },[])
     return(
        
       
@@ -36,7 +72,13 @@ const NavBar = () =>{
                     <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Gaming NFT</a>
         
                     <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bounty</a>
-                    <a href="#" class="text-gray-300 bg-blue-900 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-white font-medium">Join Dapp</a>
+                   {haveMetaMask ?<>
+                   {isConnected ?<>
+                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Joined</a>
+                   </>:<>
+                   
+                   <button onClick={connectToWallet} class="text-gray-300 bg-blue-900 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-white font-medium">Join Dapp</button></>}
+                   </>:<></>}
                   </div>
                 </div>
               </div>
