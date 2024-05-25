@@ -103,6 +103,10 @@ pipeline {
             steps {
                 echo "Deploying the app..."
             }
+            mail to: "sharvanmodi900@gmail.com",
+             subject: "new build successfully release",
+             body: "Please check"
+    }
         }
         
     }
