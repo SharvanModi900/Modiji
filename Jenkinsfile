@@ -30,7 +30,6 @@
 //         }
 //     }
 // }
-
 pipeline {
     agent any
 
@@ -38,6 +37,7 @@ pipeline {
         USERNAME = 'sharvanmodi'
         API_TOKEN = '11c387a46460b5ab325e30ab8a974cae31'
         JENKINS_URL = 'https://2c36-103-102-89-24.ngrok-free.app'
+        JOB_NAME = 'ci pipeline'  // Replace with your actual job name
     }
 
     stages {
@@ -66,7 +66,7 @@ pipeline {
                     // Trigger the Jenkins job
                     def triggerResponse = sh(
                         script: """
-                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -H "${crumbField}:${crumbValue}" -X POST "${env.JENKINS_URL}/job/your-job-name/build"
+                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -H "${crumbField}:${crumbValue}" -X POST "${env.JENKINS_URL}/job/${env.JOB_NAME}/build"
                         """,
                         returnStatus: true
                     )
