@@ -17,7 +17,7 @@ const  Container = () =>{
         </button>
         <button className='float-left ml-[410px] h-14 mt-[-190px] w-40 bg-[#53d927] hover:text-white px-3 py-2 rounded-md text-white font-bold'>JOIN PRESALE
         
-       
+       best
         </button>
       
         </div>
