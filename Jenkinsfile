@@ -30,3 +30,6 @@ pipeline {
         }
     }
 }
+
+
+//build config
