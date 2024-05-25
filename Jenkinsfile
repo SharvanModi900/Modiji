@@ -103,9 +103,7 @@ pipeline {
             steps {
                 echo "Deploying the app..."
             }
-            mail to: "sharvanmodi900@gmail.com",
-             subject: "new build successfully release",
-             body: "Please"
+           
         }
         
     }
@@ -115,6 +113,11 @@ pipeline {
         }
         success {
             echo "This will run if the build succeeded"
+
+            echo "This will run if the job failed"
+        mail to: "sharvanmodi900@gmail.com",
+             subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} has failed",
+             body: "For more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
         }
         failure {
             echo "This will run if the job failed"
