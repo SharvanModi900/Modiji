@@ -45,20 +45,34 @@ pipeline {
             steps {
                 script {
                     // Fetch the CSRF crumb in JSON format
-                    def crumbData = sh(
+                    def response = sh(
                         script: """
                             curl -u "${env.USERNAME}:${env.API_TOKEN}" -s "${env.JENKINS_URL}/crumbIssuer/api/json"
                         """,
                         returnStdout: true
                     ).trim()
 
-                    echo "Crumb data: ${crumbData}"
+                    if (!response) {
+                        error "Failed to fetch the CSRF crumb. Response was empty."
+                    }
+
+                    echo "Crumb response: ${response}"
 
                     def jsonSlurper = new groovy.json.JsonSlurper()
-                    def crumbJson = jsonSlurper.parseText(crumbData)
+                    def crumbJson
 
-                    def crumbField = crumbJson.crumbRequestField
-                    def crumbValue = crumbJson.crumb
+                    try {
+                        crumbJson = jsonSlurper.parseText(response)
+                    } catch (Exception e) {
+                        error "Failed to parse crumb response as JSON: ${e.message}"
+                    }
+
+                    def crumbField = crumbJson?.crumbRequestField
+                    def crumbValue = crumbJson?.crumb
+
+                    if (!crumbField || !crumbValue) {
+                        error "Failed to extract crumb field or value from response."
+                    }
 
                     echo "Crumb field: ${crumbField}"
                     echo "Crumb value: ${crumbValue}"
