@@ -47,10 +47,12 @@ pipeline {
                     // Fetch the CSRF crumb
                     def crumbData = sh(
                         script: """
-                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -s "${env.JENKINS_URL}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"
+                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -s "${env.JENKINS_URL}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,':',//crumb)"
                         """,
                         returnStdout: true
                     ).trim()
+
+                    echo "Crumb data: ${crumbData}"
 
                     if (!crumbData) {
                         error "Failed to fetch CSRF crumb"
@@ -59,15 +61,20 @@ pipeline {
                     def crumbField = crumbData.split(':')[0]
                     def crumbValue = crumbData.split(':')[1]
 
+                    echo "Crumb field: ${crumbField}"
+                    echo "Crumb value: ${crumbValue}"
+
                     // Trigger the Jenkins job
-                    def response = sh(
+                    def triggerResponse = sh(
                         script: """
                             curl -u "${env.USERNAME}:${env.API_TOKEN}" -H "${crumbField}:${crumbValue}" -X POST "${env.JENKINS_URL}/job/your-job-name/build"
                         """,
                         returnStatus: true
                     )
 
-                    if (response != 0) {
+                    echo "Trigger response status: ${triggerResponse}"
+
+                    if (triggerResponse != 0) {
                         error "Failed to trigger the job"
                     }
                 }
@@ -75,4 +82,3 @@ pipeline {
         }
     }
 }
-
