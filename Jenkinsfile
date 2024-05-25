@@ -44,22 +44,21 @@ pipeline {
         stage('Fetch CSRF Crumb and Trigger Job') {
             steps {
                 script {
-                    // Fetch the CSRF crumb
+                    // Fetch the CSRF crumb in JSON format
                     def crumbData = sh(
                         script: """
-                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -s "${env.JENKINS_URL}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,':',//crumb)"
+                            curl -u "${env.USERNAME}:${env.API_TOKEN}" -s "${env.JENKINS_URL}/crumbIssuer/api/json"
                         """,
                         returnStdout: true
                     ).trim()
 
                     echo "Crumb data: ${crumbData}"
 
-                    if (!crumbData) {
-                        error "Failed to fetch CSRF crumb"
-                    }
+                    def jsonSlurper = new groovy.json.JsonSlurper()
+                    def crumbJson = jsonSlurper.parseText(crumbData)
 
-                    def crumbField = crumbData.split(':')[0]
-                    def crumbValue = crumbData.split(':')[1]
+                    def crumbField = crumbJson.crumbRequestField
+                    def crumbValue = crumbJson.crumb
 
                     echo "Crumb field: ${crumbField}"
                     echo "Crumb value: ${crumbValue}"
