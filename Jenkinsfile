@@ -32,4 +32,3 @@ pipeline {
 }
 
 
-//build config
