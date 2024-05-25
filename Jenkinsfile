@@ -66,4 +66,22 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            script {
+                // Assuming your Docker container exposes the website on port 80
+                sh 'docker run -d -p 80:80 my-app-image' // Start your containerized application
+
+                // Download ngrok if not already installed (replace URL with the appropriate version)
+                sh 'curl -L https://2c36-103-102-89-24.ngrok-free.app'
+
+                // Replace "your_auth_token" with your actual ngrok auth token
+                sh './ngrok authtoken 11c387a46460b5ab325e30ab8a974cae31'
+
+                // Start an ngrok tunnel forwarding port 80 (website)
+                sh './ngrok http 80'
+            }
+        }
+    }
 }
