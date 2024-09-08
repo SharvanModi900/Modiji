@@ -5,14 +5,15 @@
   "type": "module",
   "homepage": "https://SharvanModi900.github.io/xt5/",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d --dist",
-    "dev": "vite",
-    "test": "vite test",
-    "eject": "vite enject",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist", 
+  "dev": "vite",
+  "test": "vite test",
+  "eject": "vite eject",  
+  "build": "vite build",
+  "preview": "vite preview"
+},
+
   "dependencies": {
     "ethers": "^5.6.9",
     "gh-pages": "^4.0.0",
