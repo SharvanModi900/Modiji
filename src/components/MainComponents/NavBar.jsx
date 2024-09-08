@@ -1,6 +1,7 @@
 import { ethers } from "ethers"
 import { useEffect } from "react";
 import { useState } from "react";
+import { company } from "../../company";
 const {ethereum} = window;
 const NavBar = () =>{
  const [haveMetaMask, setHaveMetaMask] = useState(true);
@@ -35,6 +36,8 @@ setIsConneted(false)
     availibilityOfMetaMask();
     connectToWallet();
   },[])
+
+ console.log(company.brandName)
     return(
        
       
@@ -56,9 +59,9 @@ setIsConneted(false)
                 </button>
               </div>
               <div class="flex-shrink-0 flex items-center">
-                  
+                  <img src={company[0].brandLogo} style={{width:48,marginTop:1}}/>
                   <a href="https://www.blockrog.com" className="text-white px-3 py-2 rounded-md  font-bold">
-                    <h3 className="text-xl ">Blockrog</h3></a>
+                    <h3 className="text-xl ">{company[0].brandName}</h3></a>
                 </div>
               <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-end">
                
@@ -67,17 +70,17 @@ setIsConneted(false)
                     
                     <a href="#" class=" text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
         
-                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Games</a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Documentation</a>
         
-                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Gaming NFT</a>
+                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Book Demo</a>
         
-                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bounty</a>
+                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">FAQ</a>
                    {haveMetaMask ?<>
                    {isConnected ?<>
-                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Joined</a>
+                    <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Download</a>
                    </>:<>
                    
-                   <button onClick={connectToWallet} class="text-gray-300 bg-blue-900 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-white font-medium">Join Dapp</button></>}
+                   <button onClick={connectToWallet} class="text-gray-300 bg-[#db7a23] hover:bg-[#db7a25] hover:text-white px-3 py-2 rounded-md text-white font-medium">Download</button></>}
                    </>:<></>}
                   </div>
                 </div>
