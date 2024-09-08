@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://SharvanModi900.github.io/Modiji/",
+  "homepage": "https://SharvanModi900.github.io/xt5/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d --dist",
